@@ -1,41 +1,12 @@
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import pawmart from '../assets/pawmart.png'
-import toy from '../assets/toy.png'
-import blood from '../assets/blood.png'
+import { Link } from 'react-router-dom'
+import { projects } from '../data/projects'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function LatestWorks() {
-  const works = [
-    {
-      id: "01",
-      title: "BloodCare",
-      subtitle: "Blood Donation & Management Platform",
-      tags: ["MongoDB", "Express", "React", "Node"],
-      image: blood,
-      link: "https://blood-care-1.netlify.app/",
-      github: "https://github.com/ripasarkar49/blood-donation-client"
-    },
-    {
-      id: "02",
-      title: "Pawmart",
-      subtitle: "Pet Care & Product Marketplace",
-      tags: ["MongoDB", "Express", "React", "Node"],
-      image: pawmart,
-      link: "https://pawmart-app.netlify.app/",
-      github: "https://github.com/ripasarkar49/pawmart-client-side"
-    },
-    {
-      id: "03",
-      title: "ToyNook",
-      subtitle: "Kids Toy Marketplace",
-      tags: ["React", "Recharts", "Tailwind", "JSON"],
-      image: toy,
-      link: "https://toynook.netlify.app/",
-      github: "https://github.com/ripasarkar49/toyNook-app"
-    }
-  ];
+  const works = projects;
 
   return (
     <section id="latest-works" className="relative py-24 border-t border-gray-800/30 overflow-hidden">
@@ -94,10 +65,10 @@ export default function LatestWorks() {
                   </div>
                   
                   <div className="flex items-center gap-3 w-full">
-                    <a href={work.link} className="flex-1 flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-3 px-6 rounded-full transition-colors uppercase text-xs tracking-wider">
+                    <Link to={`/project/${work.id}`} className="flex-1 flex items-center justify-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-3 px-6 rounded-full transition-colors uppercase text-xs tracking-wider">
                        Case Study <i className="fas fa-arrow-right -rotate-45 text-xs"></i>
-                    </a>
-                    <a href={work.github} className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 hover:bg-white/10 text-white transition-colors">
+                    </Link>
+                    <a href={work.githubLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-12 h-12 rounded-full border border-white/20 hover:bg-white/10 text-white transition-colors">
                       <i className="fab fa-github text-lg"></i>
                     </a>
                   </div>

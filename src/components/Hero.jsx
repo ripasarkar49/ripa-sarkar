@@ -1,6 +1,8 @@
 import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { cn } from '../lib/utils'
+import { socialLinks } from '../data/socials'
+import { Download, ArrowRight } from 'lucide-react'
 import ripa from '../assets/ripa.jpeg'
 import gsap from 'gsap'
 
@@ -47,10 +49,27 @@ export default function Hero() {
               My expertise lies in the MERN stack, providing seamless end-to-end solutions from <span className="text-gray-300 font-semibold border-b border-secondary/30">MongoDB</span> to building backend APIs with <span className="text-gray-300 font-semibold border-b border-primary/30">Express & Node.js</span>.
             </p>
           </div>
-          <div className="pt-4">
-            <a href="#" className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold rounded-md hover:bg-primary/90 transition-all duration-300 shadow-glow hover:shadow-glow-strong transform hover:-translate-y-1">
-              Download Resume
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <a href="#" className="inline-flex items-center justify-center px-8 py-3 bg-primary text-white font-bold rounded-full hover:bg-primary/90 transition-all duration-300 shadow-glow hover:shadow-glow-strong transform hover:-translate-y-1 text-sm tracking-widest uppercase group">
+              Download CV <Download className="ml-2 w-4 h-4 group-hover:translate-y-1 transition-transform" />
             </a>
+             <a href="#latest-works" className="inline-flex items-center justify-center px-8 py-3 bg-transparent border border-white/20 text-white font-bold rounded-full hover:bg-white/10 hover:border-white/40 transition-all duration-300 transform hover:-translate-y-1 text-sm tracking-widest uppercase group">
+              View Projects <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+
+          <div className="flex items-center gap-4 pt-4">
+             {socialLinks.map((social, index) => (
+                <a 
+                    key={index} 
+                    href={social.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 transition-all duration-300 ${social.color}`}
+                >
+                    <social.icon size={20} />
+                </a>
+             ))}
           </div>
         </motion.div>
 
