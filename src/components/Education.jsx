@@ -41,7 +41,7 @@ export default function Education() {
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/5 text-sm font-mono text-gray-400 group-hover:text-white transition-colors shrink-0">
                 <i className="far fa-calendar-alt text-primary"></i>
-                <span>2021 - 2025</span>
+                <span>2022 - 2025</span>
               </div>
             </div>
           </motion.div>
